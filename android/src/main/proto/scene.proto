@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package protos;
+
+option java_package = "vn.focal.protos";
+option java_outer_classname = "Protos";
+
+message Vec3 {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message Vec4 {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float w = 4;
+}
+
+message Mat4 {
+    Vec4 x = 1;
+    Vec4 y = 2;
+    Vec4 z = 3;
+    Vec4 w = 4;
+}
+
+message Buffer {
+    bytes data = 1;
+}
+
+enum BufferTarget {
+    ARRAY_BUFFER = 0;
+    ELEMENT_ARRAY_BUFFER = 1;
+}
+
+message BufferView {
+    int32 buffer = 1;
+    int32 byteOffset = 2;
+    int32 byteLength = 3;
+    int32 byteStride = 4;
+    BufferTarget target = 5;
+}
+
+enum MeshPrimitiveMode {
+    POINTS = 0;
+    LINES = 1;
+    LINE_LOOP = 2;
+    LINE_STRIP = 3;
+    TRIANGLES = 4;
+    TRIANGLE_STRIP = 5;
+    TRIANGLE_FAN = 6;
+}
+
+message MeshPrimitive {
+    int32 indices = 1;
+    map<string, int32> attributes = 2;
+    MeshPrimitiveMode mode = 3;
+}
+
+message Mesh {
+    repeated MeshPrimitive primitives = 1;
+}
+
+message Node {
+    repeated Node children = 1;
+    Mesh mesh = 2;
+    Mat4 matrix = 3;
+    Vec4 rotation = 4;
+    Vec3 scale = 5;
+    Vec3 translation = 6;
+}
+
+message Scene {
+    repeated Buffer buffers = 1;
+    repeated BufferView bufferViews = 2;
+    repeated Mesh meshes = 3;
+    Node rootNode = 4;
+}
+
+message RenderItem {
+    int32 vertexCount = 1;
+    bytes positionBuffer = 2;
+    bytes uvBuffer = 3;
+    int32 indexCount = 4;
+    bytes indexBuffer = 5;
+}
+
+message RenderItems {
+    repeated RenderItem items = 1;
+}
