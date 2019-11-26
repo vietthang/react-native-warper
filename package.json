@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-warper.git",
-    "baseUrl": "https://github.com/github_account/react-native-warper"
+    "url": "git+https://github.com/vietthang/react-native-warper.git",
+    "baseUrl": "https://github.com/vietthang/react-native-warper"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Thang Nguyen",
+    "email": "thangnv77@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
