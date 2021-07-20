@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61",
+    "react-native": "0.62",
     "react-native-warper": "file:../"
   },
   "devDependencies": {
